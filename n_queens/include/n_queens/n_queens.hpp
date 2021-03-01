@@ -31,10 +31,9 @@ void NQueens<N>::compute(){
 template <int N>
 void NQueens<N>::solveNQ(int row){
     if(row >= N){
+        _count++;
         if(_printAll)
             printBoard();
-
-        _count++;
 
         return;
     }
@@ -54,7 +53,7 @@ bool NQueens<N>::isSafe(int row, int col){
             return false;
         if(_board[i] == col - (row - i)) 
             return false;
-        if(_board[i] == col - (row - i)) 
+        if(_board[row - 1 - i] == col + i + 1) 
             return false;
     }
 
