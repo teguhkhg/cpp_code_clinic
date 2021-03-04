@@ -9,3 +9,4 @@ include_directories(
 
 add_executable(n_queens src/n_queens.cpp)
 add_executable(knights_tour src/knights_tour.cpp)
+add_executable(knight_min_step src/knight_min_step.cpp)
