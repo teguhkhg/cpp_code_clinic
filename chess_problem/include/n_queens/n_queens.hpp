@@ -1,6 +1,5 @@
 #include <array>
 #include <iostream>
-#include <algorithm>
 
 template <int N>
 class NQueens{
@@ -10,12 +9,13 @@ private:
     int _count{0};
 
 public:
+    NQueens() = default;
     NQueens(bool printAll) : _printAll(printAll){}
 
     void compute();
     void solveNQ(int row);
     bool isSafe(int row, int col);
-    void printBoard();
+    void printBoard() const;
 };
 
 template<int N>
@@ -61,7 +61,7 @@ bool NQueens<N>::isSafe(int row, int col){
 }
 
 template <int N>
-void NQueens<N>::printBoard(){
+void NQueens<N>::printBoard() const {
     std::cout << std::endl;
     for(const auto &row: _board){
         std::cout << row;
