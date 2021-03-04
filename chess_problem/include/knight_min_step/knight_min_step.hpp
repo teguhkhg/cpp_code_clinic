@@ -77,9 +77,9 @@ int KnightMinStep<N>::solveMinStep(const pos2d &knightPos, const pos2d &targetPo
 template <size_t N>
 bool KnightMinStep<N>::isSafe(const pos2d &pos){
     return (
-        pos.first >= 0 &&
+        pos.first > 0 &&
         pos.first < N &&
-        pos.second >= 0 &&
+        pos.second > 0 &&
         pos.second < N
     );
 }
