@@ -1,24 +1,30 @@
 #include <iostream>
 #include <array>
+#include <memory>
+
+namespace constant{
+    inline constexpr int M = 10;
+    inline constexpr int N = 10;
+
+    using array2b = std::array<std::array<bool, N>, M>;
+}
 
 template <int M, int N>
 class GameofLife{
 private:
-    using array2b = std::array<std::array<bool, N>, M>;
+    using array2b = constant::array2b;
     array2b grid{};
 
 public:
     GameofLife() {
-        grid[1][3] = true;
-        grid[1][4] = true;
-        grid[2][4] = true;
-        grid[5][3] = true;
-        grid[5][4] = true;
-        grid[6][2] = true;
-        grid[6][3] = true;
-        grid[7][5] = true;
-        grid[8][4] = true;
+        init();
+    }
 
+    GameofLife(array2b grid) : grid{grid} {
+        init();
+    }
+
+    void init(){
         std::cout << "Current Generation : " << std::endl; 
         GameofLife<M, N>::printBoard(grid);
     }
@@ -60,8 +66,9 @@ void GameofLife<M, N>::nextGen(){
                 new_grid[x][y] = grid[x][y];
         }
 
+    grid = new_grid;
     std::cout << "Next Generation : " << std::endl;
-    GameofLife<M, N>::printBoard(new_grid);
+    GameofLife<M, N>::printBoard(grid);
 }
 
 template <int M, int N>
