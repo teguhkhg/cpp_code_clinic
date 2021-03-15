@@ -12,21 +12,14 @@ public:
     Maybe(decltype(nullptr) nothing) : data(nullptr), error(nullptr){}
     Maybe(Error&& error) : data(nullptr), error(std::make_shared<Error>(error)){}
 
-    bool isEmpty(){
-        return (data == nullptr);
-    }
-    bool hasError(){
-        return (error != nullptr);
-    }
-    T operator()(){
-        return data;
-    }
-    std::shared_ptr<Error> getError(){
-        return error;
-    }
+    bool isEmpty(){return (data == nullptr);}
+    bool hasError(){return (error != nullptr);}
+    T operator()(){return data;}
+    std::shared_ptr<Error> getError(){return error;}
 };
 
 template <typename T>
 Maybe<T> just(T t){
     return Maybe<T>(t);
 }
+
