@@ -25,3 +25,8 @@ public:
         return error;
     }
 };
+
+template <typename T>
+Maybe<T> just(T t){
+    return Maybe<T>(t);
+}

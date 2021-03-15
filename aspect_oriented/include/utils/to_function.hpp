@@ -1,3 +1,5 @@
+#include <functional>
+
 template <typename Function>
 struct function_traits 
 : public function_traits<decltype(&Function::operator())>

@@ -1,7 +1,5 @@
-#include <iostream>
-#include <functional>
-
 #include <utils/to_function.hpp>
+#include <iostream>
 
 template <typename ...Args>
 std::function<void(Args...)> wrapLog(std::function<void(Args...)> f){
