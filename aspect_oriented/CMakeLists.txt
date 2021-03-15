@@ -6,3 +6,4 @@ include_directories(
 )
 
 add_executable(plus src/plus.cpp)
+add_executable(find_by_id src/find_by_id.cpp)
