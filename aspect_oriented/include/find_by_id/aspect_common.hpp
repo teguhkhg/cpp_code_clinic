@@ -1,3 +1,3 @@
-#include "type/common.hpp"
+#include <string>
 #include <functional>
 #include <iostream>
